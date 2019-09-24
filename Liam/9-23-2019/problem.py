@@ -7,20 +7,13 @@ class Node:
         self.right = right
 
 
-def serialize(root):
-    # call helper recursive function
-    return serialize_str(root, '')
-
-def serialize_str(node, str):
+def serialize(node):
     # base case
     if node == None:
-        return str
+        return ''
 
     # recursive case
-    str = str + node.val + ' '
-    str = serialize_str(node.left, str)
-    str = serialize_str(node.right, str)
-    return str
+    return node.val + ' ' + serialize(node.left) + serialize(node.right)
 
 
 def deserialize(str):
